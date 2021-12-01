@@ -1,0 +1,41 @@
+{
+    "name": "tamit/slideshow",
+    "type": "phpbb-extension",
+    "description": "An extension for phpBB that allows administrators to manage slideshow on their forums.",
+    "homepage": "https://www.tamit.net",
+    "version": "1.0.0",
+    "keywords": [
+        "phpbb",
+        "extension",
+        "slideshow"
+    ],
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Huynh Buu Tam",
+            "email": "huynhbuutam@gmail.com",
+            "homepage": "https://www.tamit.net",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": "~1.0.0",
+        "phpbb/phpbb": ">=3.2.1"
+    },
+    "require-dev": {
+        "phing/phing": "2.4.*"
+    },
+    "extra": {
+        "display-name": "Slideshow Management",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.2.1"
+        },
+        "version-check": {
+            "host": "www.phpbb.com",
+            "directory": "/customise/db/extension/slideshow",
+            "filename": "version_check",
+            "ssl": true
+        }
+    }
+}

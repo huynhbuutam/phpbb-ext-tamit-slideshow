@@ -1,0 +1,134 @@
+{% include 'overall_header.html' %}
+
+<a id="maincontent"></a>
+
+{% if S_ADD_SLIDE or S_EDIT_SLIDE %}
+
+	<a href="{{ U_BACK }}" style="float: {{ S_CONTENT_FLOW_END }};">&laquo; {{ lang('BACK') }}</a>
+
+	<h1>{% if S_ADD_SLIDE %}{{ lang('ACP_SLIDES_ADD') }}{% else %}{{ lang('ACP_SLIDES_EDIT') }}{% endif %}</h1>
+
+	{% if S_ERROR %}
+		<div class="errorbox">
+			<h3>{{ lang('WARNING') }}</h3>
+			<p>{{ ERROR_MSG }}</p>
+		</div>
+	{% endif %}
+
+	<form id="acp_slidemanagement_add" method="post" action="{{ U_ACTION }}" enctype="multipart/form-data">
+		<fieldset>
+			<legend>{{ lang('SLIDE_SETTINGS') }}</legend>
+			<dl>
+				<dt><label for="slide_title">{{ lang('SLIDE_TITLE') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDE_TITLE_EXPLAIN') }}</span></dt>
+				<dd>
+					<input class="text medium" id="slide_title" name="slide_title" value="{{ SLIDE_TITLE }}" maxlength="255" />
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="slide_description">{{ lang('SLIDE_DESCRIPTION') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDE_DESCRIPTION_EXPLAIN') }}</span></dt>
+				<dd><textarea id="slide_description" name="slide_description" rows="5" cols="60" style="width: 95%;">{{ SLIDE_DESCRIPTION }}</textarea></dd>
+			</dl>
+			<dl>
+				<dt><label for="slide_image">{{ lang('SLIDE_IMAGE') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDE_IMAGE_EXPLAIN') }}</span></dt>
+				<dd>
+					<input class="text medium" id="slide_image" name="slide_image" value="{{ SLIDE_IMAGE }}" maxlength="255" />
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="slide_link">{{ lang('SLIDE_LINK') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDE_LINK_EXPLAIN') }}</span></dt>
+				<dd>
+					<input class="text medium" id="slide_link" name="slide_link" value="{{ SLIDE_LINK }}" maxlength="255" />
+				</dd>
+			</dl>
+			<dl>
+				<dt><label for="slide_enabled">{{ lang('SLIDE_ENABLED') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDE_ENABLED_EXPLAIN') }}</span></dt>
+				<dd>
+					<label><input type="radio" class="radio" id="slide_enabled" name="slide_enabled" value="1"{% if SLIDE_ENABLED %} checked{% endif %} /> {{ lang('ENABLED') }}</label>
+					<label><input type="radio" class="radio" name="slide_enabled" value="0"{% if not SLIDE_ENABLED %} checked{% endif %} /> {{ lang('DISABLED') }}</label>
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset>
+			<legend>{{ lang('UPLOAD_IMAGE_LEGEND') }}</legend>
+			<dl>
+				<dt><label for="upload_image">{{ lang('UPLOAD_IMAGE') ~ lang('COLON') }}</label><br /><span>{{ lang('UPLOAD_IMAGE_EXPLAIN') }}</span></dt>
+				<dd>
+					<input type="file" accept="image/*" class="inputbox autowidth" id="upload_image" name="upload_image" />
+					<button class="button2" id="submit_upload_image" name="submit_upload_image"><i class="icon fa-fw fa-upload"></i> <span>{{ lang('UPLOAD_SUBMIT') }}</span></button>
+				</dd>
+			</dl>
+		</fieldset>
+		<fieldset class="submit-buttons">
+			<input class="button1" type="submit" id="submit" name="submit_{% if S_EDIT_SLIDE %}edit{% else %}add{% endif %}" value="{{ lang('SUBMIT') }}" />&nbsp;
+			<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+			{% if S_EDIT_SLIDE %}
+				<input type="hidden" name="id" value="{{ EDIT_ID }}" />
+				<input type="hidden" name="action" value="edit" />
+			{% else %}
+				<input type="hidden" name="action" value="add" />
+			{% endif %}
+			{{ S_FORM_TOKEN }}
+		</fieldset>
+	</form>
+
+{% else %}
+
+	<h1>{{ lang('ACP_MANAGE_SLIDES_TITLE') }}</h1>
+
+	<table class="table1 zebra-table fixed-width-table">
+		<thead>
+			<tr>
+				<th style="width: 50%;">{{ lang('SLIDE_TITLE') }}</th>
+				<th>{{ lang('SLIDE_STATUS') }}</th>
+				<th>{{ lang('ACTION') }}</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for list in [
+				{
+					'loop': loops.slides,
+					'allow_enable': true
+				}
+			] %}
+				{% if list.loop %}
+					{% for slide in list.loop %}
+						<tr>
+							<td><strong>{{ slide.TITLE }}</strong></td>
+							<td class="actions">
+								{% if list.allow_enable %}
+									<a href="{{ slide.U_ENABLE }}" title="{{ lang('SLIDE_ENABLE_TITLE', slide.S_ENABLED) }}" data-ajax="toggle_enable">
+										{% if slide.S_ENABLED %}{{ lang('ENABLED') }}{% else %}{{ lang('DISABLED') }}{% endif %}
+									</a>
+								{% else %}
+									{{ lang('DISABLED') }}
+								{% endif %}
+							</td>
+							<td class="actions">
+								<span class="up-disabled" style="display:none;">{ICON_MOVE_UP_DISABLED}</span>
+								<span class="up"><a href="{{ slide.U_MOVEUP }}" data-ajax="row_up">{ICON_MOVE_UP}</a></span>
+								<span class="down-disabled" style="display:none;">{ICON_MOVE_DOWN_DISABLED}</span>
+								<span class="down"><a href="{{ slide.U_MOVEDOWN }}" data-ajax="row_down">{ICON_MOVE_DOWN}</a></span>
+								<a href="{{ slide.U_EDIT }}">{{ ICON_EDIT }}</a> <a href="{{ slide.U_DELETE }}" data-ajax="row_delete">{{ ICON_DELETE }}</a>
+							</td>
+						</tr>
+					{% endfor %}
+				{% elseif not loops.slides and loop.last %}
+					<tr>
+						<td colspan="3" style="text-align: center;">{{ lang('ACP_SLIDES_EMPTY') }}</td>
+					</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<form id="acp_tamit_slideshow_quick_add" method="post" action="{{ U_ACTION_ADD }}">
+		<fieldset class="quick">
+			<a href="{{ U_ACTION_FIX_POSITIONS }}" data-ajax="true">{{ lang('ACP_SLIDES_FIX_POSITION') }}</a>
+			<input class="button2" type="submit" value="{{ lang('ACP_SLIDES_ADD') }}" />
+			{{ S_FORM_TOKEN }}
+		</fieldset>
+	</form>
+
+{% endif %}
+
+{% include 'overall_footer.html' %}

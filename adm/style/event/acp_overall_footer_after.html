@@ -1,0 +1,65 @@
+{% if S_TAMIT_SLIDESHOW %}
+
+	<script>
+	/**
+	 * This callback replaces enable links with disable links and vice versa.
+	 * It does this by replacing the text, and replacing all instances of "enable"
+	 * in the href with "disable", and vice versa.
+	 */
+	phpbb.addAjaxCallback('toggle_enable', function(res) {
+		var $this = $(this),
+			newHref = $this.attr('href');
+
+		$this.text(res.text);
+		$this.attr('title', res.title);
+
+		if (newHref.indexOf('disable') !== -1) {
+			newHref = newHref.replace('disable', 'enable');
+		} else {
+			newHref = newHref.replace('enable', 'disable');
+		}
+
+		$this.attr('href', newHref);
+	});
+	
+	/**
+	 * Ajax update slide image field
+	 */
+	jQuery(function($) {
+		$('#submit_upload_image').on('click', function(e) {
+			e.preventDefault();
+
+			var file = $('#upload_image')[0].files[0];
+			if (file) {
+				var formData = new FormData();
+				formData.append('upload_image', file);
+				formData.append('submit_upload_image', true);
+				$.ajax({
+					method: 'POST',
+					url: window.location.href,
+					data: formData,
+					processData: false,
+					async: true,
+					cache: false,
+					contentType: false,
+					success: function(data) {
+						if (data.success) {
+							$('#slide_image').val(data.text);
+							phpbb.alert('{{ lang('UPLOAD_SUBMIT') }}', '{{ lang('UPLOAD_IMAGE_UPLOADED') }}');
+						}
+						else {
+							phpbb.alert(data.title, data.text);
+						}
+					},
+					error: function(err) {
+						phpbb.alert(err.title, err.text);
+					}
+				});
+			}
+			else {
+				phpbb.alert('{{ lang('INFORMATION')|e('js') }}', '{{ lang('NO_FILE_SELECTED')|e('js') }}');
+			}
+		});
+	});
+	</script>
+{% endif %}

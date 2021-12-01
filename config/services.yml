@@ -1,0 +1,59 @@
+imports:
+    - { resource: tables.yml }
+
+services:
+    tamit.slideshow.core.manager:
+        class: tamit\slideshow\core\manager
+        arguments:
+            - '@auth'
+            - '@dbal.conn'
+            - '@config'
+            - '%core.php_ext%'
+            - '%core.root_path%'
+            - '%tamit.slideshow.tables.slideshow%'
+
+    tamit.slideshow.core.upload_image:
+        class: tamit\slideshow\core\upload_image
+        arguments:
+            - '@files.upload'
+            - '@filesystem'
+            - '%core.root_path%'
+
+    tamit.slideshow.helper:
+        class: tamit\slideshow\controller\helper
+        arguments:
+            - '@user'
+            - '@language'
+            - '@template'
+            - '@log'
+            - '@tamit.slideshow.core.manager'
+
+    tamit.slideshow.admin.input:
+        class: tamit\slideshow\controller\admin_input
+        arguments:
+            - '@user'
+            - '@language'
+            - '@request'
+            - '@tamit.slideshow.core.upload_image'
+
+    tamit.slideshow.listener:
+        class: tamit\slideshow\event\main_listener
+        arguments:
+            - '@template'
+            - '@request'
+            - '@config'
+            - '@tamit.slideshow.core.manager'
+            - '%core.php_ext%'
+        tags:
+            - { name: event.listener }
+    tamit.slideshow.admin.controller:
+        class: tamit\slideshow\controller\admin_controller
+        arguments:
+            - '@template'
+            - '@language'
+            - '@request'
+            - '@tamit.slideshow.core.manager'
+            - '@config'
+            - '@tamit.slideshow.admin.input'
+            - '@tamit.slideshow.helper'
+

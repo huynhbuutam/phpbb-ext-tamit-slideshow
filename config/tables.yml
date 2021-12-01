@@ -1,0 +1,2 @@
+parameters:
+    tamit.slideshow.tables.slideshow: '%core.table_prefix%slideshow'

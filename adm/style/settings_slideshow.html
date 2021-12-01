@@ -1,0 +1,78 @@
+{% include 'overall_header.html' %}
+
+<a id="maincontent"></a>
+
+<h1>{{ lang('SETTINGS') }}</h1>
+
+{% if S_ERROR %}
+	<div class="errorbox">
+		<h3>{{ lang('WARNING') }}</h3>
+		<p>{{ ERROR_MSG }}</p>
+	</div>
+{% endif %}
+
+<form id="acp_slideshowmanagement_settings" method="post" action="{{ U_ACTION }}">
+	<fieldset>
+		<legend>{{ lang('SLIDESHOW_TARGET_LEGEND') }}</legend>
+		<dl>
+			<dt><label>{{ lang('SLIDESHOW_TARGET') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_TARGET_EXPLAIN') }}</span></dt>
+			<dd>
+				<label><input type="checkbox" class="radio" name="slideshow_page_index" value="1"{% if SLIDESHOW_PAGE_INDEX == 1 %} checked{% endif %} /> {{ lang('CAT_TARGET_INDEX') }}</label>
+				<label><input type="checkbox" class="radio" name="slideshow_page_viewforum" value="1"{% if SLIDESHOW_PAGE_VIEWFORUM == 1 %} checked{% endif %} /> {{ lang('CAT_TARGET_VIEWFORUM') }}</label>
+				<label><input type="checkbox" class="radio" name="slideshow_page_viewtopic" value="1"{% if SLIDESHOW_PAGE_VIEWTOPIC == 1 %} checked{% endif %} /> {{ lang('CAT_TARGET_VIEWTOPIC') }}</label>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{{ lang('SLIDESHOW_APPEARENCE') }}</legend>
+		<dl>
+			<dt><label for="slideshow_box">{{ lang('SLIDESHOW_BOX') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_BOX_EXPLAIN') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" id="slideshow_box" name="slideshow_box" value="1"{% if SLIDESHOW_BOX == 1 %} checked{% endif %} /> {{ lang('ENABLED') }}</label>
+				<label><input type="radio" class="radio" name="slideshow_box" value="0"{% if SLIDESHOW_BOX == 0 %} checked{% endif %} /> {{ lang('DISABLED') }}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label>{{ lang('SLIDESHOW_NAVIGATOR') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_NAVIGATOR_EXPLAIN') }}</span></dt>
+			<dd>
+				<label><input type="checkbox" class="radio" name="slideshow_nav_image" value="1"{% if SLIDESHOW_NAV_IMAGE == 1 %} checked{% endif %} /> {{ lang('CAT_NAV_IMAGE') }}</label>
+				<label><input type="checkbox" class="radio" name="slideshow_nav_dot" value="1"{% if SLIDESHOW_NAV_DOT == 1 %} checked{% endif %} /> {{ lang('CAT_NAV_DOT') }}</label>
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset>
+		<legend>{{ lang('SLIDESHOW_MODE') }}</legend>
+		<dl>
+			<dt><label for="slideshow_mode">{{ lang('SLIDESHOW_MODE_TOPICS') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_MODE_TOPICS_EXPLAIN') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" id="slideshow_mode" name="slideshow_mode" value="1"{% if SLIDESHOW_MODE == 1 %} checked{% endif %} /> {{ lang('ENABLED') }}</label>
+				<label><input type="radio" class="radio" name="slideshow_mode" value="0"{% if SLIDESHOW_MODE == 0 %} checked{% endif %} /> {{ lang('DISABLED') }}</label>
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="slideshow_topic_count">{{ lang('SLIDESHOW_TOPIC_COUNT') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_TOPIC_COUNT_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="number" id="slideshow_topic_count" name="slideshow_topic_count" value="{{ SLIDESHOW_TOPIC_COUNT }}" min="1" max="20" />
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="slideshow_topic_hide_bbcode">{{ lang('SLIDESHOW_TOPIC_HIDE_BBCODE') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_TOPIC_HIDE_BBCODE_EXPLAIN') }}</span></dt>
+			<dd>
+				<input class="text medium" id="slideshow_topic_hide_bbcode" name="slideshow_topic_hide_bbcode" value="{{ SLIDESHOW_TOPIC_HIDE_BBCODE }}" maxlength="255" />
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="slideshow_default_image">{{ lang('SLIDESHOW_DEFAULT_IMAGE') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_DEFAULT_IMAGE_EXPLAIN') }}</span></dt>
+			<dd>
+				<input class="text medium" id="slideshow_default_image" name="slideshow_default_image" value="{{ SLIDESHOW_DEFAULT_IMAGE }}" maxlength="255" />
+			</dd>
+		</dl>
+	</fieldset>
+	<fieldset class="submit-buttons">
+		<input class="button1" type="submit" id="submit" name="submit" value="{{ lang('SUBMIT') }}" />&nbsp;
+		<input class="button2" type="reset" id="reset" name="reset" value="{{ lang('RESET') }}" />
+		{{ S_FORM_TOKEN }}
+	</fieldset>
+</form>
+
+{% include 'overall_footer.html' %}
