@@ -33,7 +33,7 @@
         },
         "version-check": {
             "host": "www.phpbb.com",
-            "directory": "/customise/db/extension/slideshow",
+            "directory": "/customise/db/extension/slideshow_management",
             "filename": "version_check",
             "ssl": true
         }

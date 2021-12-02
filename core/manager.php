@@ -192,7 +192,7 @@ class manager
 			{
 				$sql2 = 'SELECT attach_id
 						FROM ' . ATTACHMENTS_TABLE . '
-						WHERE post_msg_id = ' . $posts_row['post_id'] . '
+						WHERE post_msg_id = ' . (int) $posts_row['post_id'] . '
 						ORDER BY attach_id DESC';
 				$result2 = $this->db->sql_query($sql2);
 				$posts_row2 = $this->db->sql_fetchrowset($result2);
