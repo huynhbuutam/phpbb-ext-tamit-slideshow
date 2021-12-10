@@ -121,6 +121,24 @@ class manager
 	}
 	
 	/**
+	 * Check if the forum is password protected
+	 *
+	 * @param	int		$forum_id		Forum id
+	 * @return	bool					True - Forum is password protected, False - Forum is not password protected
+	 */
+	public function is_protected_forum($forum_id)
+	{
+		$sql = 'SELECT forum_password
+			FROM ' . FORUMS_TABLE . '
+			WHERE forum_id = ' . (int) $forum_id;
+		$result = $this->db->sql_query($sql);
+		$password = $this->db->sql_fetchrow($result);
+		$this->db->sql_freeresult($result);
+		
+		return (strlen($password["forum_password"]) > 0 ? true : false);
+	}
+	
+	/**
 	 * Get newest topics
 	 *
 	 * @param	array	$forum_ids		Array of forum ids. We assume the maximum forum id is 500
@@ -200,24 +218,32 @@ class manager
 				$post_image = $this->phpbb_root_path . 'download/file.php?id=' . $post_image . '&amp;mode=view';
 				$this->db->sql_freeresult($result2);
 			}
-			// Hide BBCode content
-			$bbcodes = $this->config['tamit_slideshow_topic_hide_bbcode'];
-			if (strlen($bbcodes) > 0)
+			
+			if ($this->config['tamit_slideshow_topic_max_length'] > 0)
 			{
-				$bbcodeArr = explode(',', $bbcodes);
-				foreach ($bbcodeArr as $bbcode)
+				// Hide BBCode content
+				$bbcodes = $this->config['tamit_slideshow_topic_hide_bbcode'];
+				if (strlen($bbcodes) > 0)
 				{
-					$post_text = preg_replace('/(<' . preg_quote(trim($bbcode)) . '.*?' . preg_quote(trim($bbcode)) . '\]<\/e><\/' . preg_quote(trim($bbcode)) . '>)/i', '', $post_text);
+					$bbcodeArr = explode(',', $bbcodes);
+					foreach ($bbcodeArr as $bbcode)
+					{
+						$post_text = preg_replace('/(<' . preg_quote(trim($bbcode)) . '.*?' . preg_quote(trim($bbcode)) . '\]<\/e><\/' . preg_quote(trim($bbcode)) . '>)/i', '', $post_text);
+					}
+				}
+				// Clean description
+				strip_bbcode($post_text);
+				censor_text($post_text);
+				
+				if (strlen($post_text) > $this->config['tamit_slideshow_topic_max_length'])
+				{
+					$post_text = substr($post_text, 0, $this->config['tamit_slideshow_topic_max_length']);
+					$post_text = $post_text . '...';
 				}
 			}
-			// Clean description
-			strip_bbcode($post_text);
-			censor_text($post_text);
-			
-			if (strlen($post_text) > 200)
+			else
 			{
-				$post_text = substr($post_text, 0, 200);
-				$post_text = $post_text . '...';
+				$post_text = '';
 			}
 
 			$slide = array(
@@ -475,15 +501,18 @@ class manager
 				if ($type == 'topic_id')
 				{
 					$out_where .= ($j == 0) ? 'WHERE ' . $type . ' = ' . $id_check . ' ' : 'OR ' . $type . ' = ' . $id_check . ' ';
+					$j++;
 				}
 
 				// If the type is forum, do the check to make sure the user has read permissions
 				else if ($type == 'forum_id' && $this->auth->acl_get('f_read', $id_check))
 				{
-					$out_where .= ($j == 0) ? 'WHERE ' . $type . ' = ' . $id_check . ' ' : 'OR ' . $type . ' = ' . $id_check . ' ';
-				}    
-
-				$j++;
+					if ($this->config['tamit_slideshow_topic_hide_protected_forum'] == 0  || !$this->is_protected_forum($id_check))
+					{
+						$out_where .= ($j == 0) ? 'WHERE ' . $type . ' = ' . $id_check . ' ' : 'OR ' . $type . ' = ' . $id_check . ' ';
+						$j++;
+					}
+				}
 			}
 		}
 

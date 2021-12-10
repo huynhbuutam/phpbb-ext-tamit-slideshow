@@ -102,6 +102,8 @@ class admin_controller
 				$this->config->set('tamit_slideshow_nav_image', $this->request->variable('slideshow_nav_image', 0));
 				$this->config->set('tamit_slideshow_nav_dot', $this->request->variable('slideshow_nav_dot', 0));
 				$this->config->set('tamit_slideshow_mode', $this->request->variable('slideshow_mode', 0));
+				$this->config->set('tamit_slideshow_topic_max_length', $this->request->variable('slideshow_topic_max_length', 0));
+				$this->config->set('tamit_slideshow_topic_hide_protected_forum', $this->request->variable('slideshow_topic_hide_protected_forum', 0));
 				$this->config->set('tamit_slideshow_topic_count', $this->request->variable('slideshow_topic_count', 0));
 				$this->config->set('tamit_slideshow_topic_hide_bbcode', $this->request->variable('slideshow_topic_hide_bbcode', ''));
 				$this->config->set('tamit_slideshow_default_image', $this->request->variable('slideshow_default_image', ''));
@@ -114,17 +116,19 @@ class admin_controller
 		}
 
 		$this->template->assign_vars(array(
-			'U_ACTION'          			=> $this->u_action,
-			'SLIDESHOW_PAGE_INDEX' 			=> $this->config['tamit_slideshow_page_index'],
-			'SLIDESHOW_PAGE_VIEWFORUM' 		=> $this->config['tamit_slideshow_page_viewforum'],
-			'SLIDESHOW_PAGE_VIEWTOPIC' 		=> $this->config['tamit_slideshow_page_viewtopic'],
-			'SLIDESHOW_BOX' 				=> $this->config['tamit_slideshow_box'],
-			'SLIDESHOW_NAV_IMAGE' 			=> $this->config['tamit_slideshow_nav_image'],
-			'SLIDESHOW_NAV_DOT' 			=> $this->config['tamit_slideshow_nav_dot'],
-			'SLIDESHOW_MODE' 				=> $this->config['tamit_slideshow_mode'],
-			'SLIDESHOW_TOPIC_COUNT' 		=> $this->config['tamit_slideshow_topic_count'],
-			'SLIDESHOW_TOPIC_HIDE_BBCODE' 	=> $this->config['tamit_slideshow_topic_hide_bbcode'],
-			'SLIDESHOW_DEFAULT_IMAGE'		=> $this->config['tamit_slideshow_default_image']
+			'U_ACTION'          					=> $this->u_action,
+			'SLIDESHOW_PAGE_INDEX' 					=> $this->config['tamit_slideshow_page_index'],
+			'SLIDESHOW_PAGE_VIEWFORUM' 				=> $this->config['tamit_slideshow_page_viewforum'],
+			'SLIDESHOW_PAGE_VIEWTOPIC' 				=> $this->config['tamit_slideshow_page_viewtopic'],
+			'SLIDESHOW_BOX' 						=> $this->config['tamit_slideshow_box'],
+			'SLIDESHOW_NAV_IMAGE' 					=> $this->config['tamit_slideshow_nav_image'],
+			'SLIDESHOW_NAV_DOT' 					=> $this->config['tamit_slideshow_nav_dot'],
+			'SLIDESHOW_MODE' 						=> $this->config['tamit_slideshow_mode'],
+			'SLIDESHOW_TOPIC_MAX_LENGTH' 			=> $this->config['tamit_slideshow_topic_max_length'],
+			'SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM' 	=> $this->config['tamit_slideshow_topic_hide_protected_forum'],
+			'SLIDESHOW_TOPIC_COUNT' 				=> $this->config['tamit_slideshow_topic_count'],
+			'SLIDESHOW_TOPIC_HIDE_BBCODE' 			=> $this->config['tamit_slideshow_topic_hide_bbcode'],
+			'SLIDESHOW_DEFAULT_IMAGE'				=> $this->config['tamit_slideshow_default_image']
 		));
 	}
 
@@ -139,6 +143,7 @@ class admin_controller
 		$this->language->add_lang('posting');
 		// Custom Ajax callback
 		$this->template->assign_var('S_TAMIT_SLIDESHOW', true);
+		$this->template->assign_var('S_TAMIT_SLIDESHOW_MODE_TOPICS', $this->config['tamit_slideshow_mode']);
 		
 		// Trigger specific action
 		$action = $this->request->variable('action', '');

@@ -32,6 +32,7 @@ $lang = array_merge($lang, array(
 	'SLIDE_IMAGE_EXPLAIN'				=> 'Enter the slide image here (URL).',
 	'SLIDE_LINK'						=> 'Slide link',
 	'SLIDE_LINK_EXPLAIN'				=> 'Enter the slide link here (URL).',
+	'SLIDE_SETTINGS_NOT_AFFECTED'		=> 'The mode <samp>Newest topics</samp> is currently enabled. The settings below will be applied after disabling <samp>Newest topics</samp> mode.',
 	// Upload
 	'UPLOAD_IMAGE_LEGEND'				=> 'Upload image',
 	'UPLOAD_IMAGE'						=> 'Upload new image',
@@ -90,15 +91,19 @@ $lang = array_merge($lang, array(
 	'CAT_TARGET_VIEWFORUM'				=> 'Viewforum',
 	'CAT_TARGET_VIEWTOPIC'				=> 'Viewtopic',
 	
-	'SLIDESHOW_MODE'						=> 'Slideshow mode',
-	'SLIDESHOW_MODE_TOPICS'					=> 'Newest topics',
-	'SLIDESHOW_MODE_TOPICS_EXPLAIN'			=> 'Set newest topics as slides.',
-	'SLIDESHOW_TOPIC_COUNT'					=> 'Topic count',
-	'SLIDESHOW_TOPIC_COUNT_EXPLAIN'			=> 'Number of topics to get.',
-	'SLIDESHOW_TOPIC_HIDE_BBCODE'			=> 'Hide BBCode content',
-	'SLIDESHOW_TOPIC_HIDE_BBCODE_EXPLAIN'	=> 'If you want to hide the content of several BBCodes, enter each BBCode name here, separated by commas (,), do not include the brackets (e.g. <samp>url, code</samp>).',
-	'SLIDESHOW_DEFAULT_IMAGE'				=> 'Default image',
-	'SLIDESHOW_DEFAULT_IMAGE_EXPLAIN'		=> 'If the first post of the topic doesn\'t have any images (using BBcode IMG or In-line attachments), use the default image instead.',
+	'SLIDESHOW_MODE'								=> 'Slideshow mode',
+	'SLIDESHOW_MODE_TOPICS'							=> 'Newest topics',
+	'SLIDESHOW_MODE_TOPICS_EXPLAIN'					=> 'Set newest topics as slides.',
+	'SLIDESHOW_TOPIC_MAX_LENGTH'					=> 'Max length',
+	'SLIDESHOW_TOPIC_MAX_LENGTH_EXPLAIN'			=> 'Maximum length of post content to display in the description. Set to 0 if you want to hide post content.',
+	'SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM'			=> 'Hide posts from password protected forum',
+	'SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM_EXPLAIN'	=> 'Don\'t show posts from password protected forum.',
+	'SLIDESHOW_TOPIC_COUNT'							=> 'Topic count',
+	'SLIDESHOW_TOPIC_COUNT_EXPLAIN'					=> 'Number of topics to get.',
+	'SLIDESHOW_TOPIC_HIDE_BBCODE'					=> 'Hide BBCode content',
+	'SLIDESHOW_TOPIC_HIDE_BBCODE_EXPLAIN'			=> 'If you want to hide the content of several BBCodes, enter each BBCode name here, separated by commas (,), do not include the brackets (e.g. <samp>url, code</samp>).',
+	'SLIDESHOW_DEFAULT_IMAGE'						=> 'Default image',
+	'SLIDESHOW_DEFAULT_IMAGE_EXPLAIN'				=> 'If the first post of the topic doesn\'t have any images (using BBcode IMG or In-line attachments), use the default image instead.',
 
-	'ACP_SLIDE_SETTINGS_SAVED'				=> 'Slideshow Management settings saved.'
+	'ACP_SLIDE_SETTINGS_SAVED'						=> 'Slideshow Management settings saved.'
 ));

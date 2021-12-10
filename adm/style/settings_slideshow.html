@@ -50,6 +50,19 @@
 			</dd>
 		</dl>
 		<dl>
+			<dt><label for="slideshow_topic_max_length">{{ lang('SLIDESHOW_TOPIC_MAX_LENGTH') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_TOPIC_MAX_LENGTH_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="number" id="slideshow_topic_max_length" name="slideshow_topic_max_length" value="{{ SLIDESHOW_TOPIC_MAX_LENGTH }}" min="0" max="800" />
+			</dd>
+		</dl>
+		<dl>
+			<dt><label for="slideshow_topic_hide_protected_forum">{{ lang('SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM_EXPLAIN') }}</span></dt>
+			<dd>
+				<label><input type="radio" class="radio" id="slideshow_topic_hide_protected_forum" name="slideshow_topic_hide_protected_forum" value="1"{% if SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM == 1 %} checked{% endif %} /> {{ lang('ENABLED') }}</label>
+				<label><input type="radio" class="radio" name="slideshow_topic_hide_protected_forum" value="0"{% if SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM == 0 %} checked{% endif %} /> {{ lang('DISABLED') }}</label>
+			</dd>
+		</dl>
+		<dl>
 			<dt><label for="slideshow_topic_count">{{ lang('SLIDESHOW_TOPIC_COUNT') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_TOPIC_COUNT_EXPLAIN') }}</span></dt>
 			<dd>
 				<input type="number" id="slideshow_topic_count" name="slideshow_topic_count" value="{{ SLIDESHOW_TOPIC_COUNT }}" min="1" max="20" />

@@ -35,6 +35,8 @@ class m2_initial_data extends \phpbb\db\migration\migration
 			array('config.add', array('tamit_slideshow_nav_image', 1)),
 			array('config.add', array('tamit_slideshow_nav_dot', 1)),
 			array('config.add', array('tamit_slideshow_mode', 0)),
+			array('config.add', array('tamit_slideshow_topic_max_length', 200)),
+			array('config.add', array('tamit_slideshow_topic_hide_protected_forum', 1)),
 			array('config.add', array('tamit_slideshow_topic_count', 10)),
 			array('config.add', array('tamit_slideshow_topic_hide_bbcode', '')),
 			array('config.add', array('tamit_slideshow_default_image', ''))

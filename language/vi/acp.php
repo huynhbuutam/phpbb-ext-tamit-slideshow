@@ -32,6 +32,7 @@ $lang = array_merge($lang, array(
 	'SLIDE_IMAGE_EXPLAIN'				=> 'Nhập hình ảnh trang chiếu ở đây (địa chỉ liên kết).',
 	'SLIDE_LINK'						=> 'Liên kết trang chiếu',
 	'SLIDE_LINK_EXPLAIN'				=> 'Nhập liên kết trang chiếu ở đây (địa chỉ liên kết).',
+	'SLIDE_SETTINGS_NOT_AFFECTED'		=> 'Chế độ <samp>Chủ đề mới nhất</samp> hiện đang được bật. Các cài đặt bên dưới sẽ được áp dụng sau khi tắt chế độ <samp>Chủ đề mới nhất</samp>.',
 	// Upload
 	'UPLOAD_IMAGE_LEGEND'				=> 'Tải lên hình ảnh',
 	'UPLOAD_IMAGE'						=> 'Tải lên hình ảnh mới',
@@ -90,15 +91,19 @@ $lang = array_merge($lang, array(
 	'CAT_TARGET_VIEWFORUM'				=> 'Xem diễn đàn',
 	'CAT_TARGET_VIEWTOPIC'				=> 'Xem chủ đề',
 	
-	'SLIDESHOW_MODE'						=> 'Chế độ trình chiếu',
-	'SLIDESHOW_MODE_TOPICS'					=> 'Chủ đề mới nhất',
-	'SLIDESHOW_MODE_TOPICS_EXPLAIN'			=> 'Đặt chủ đề mới nhất như là các trang chiếu.',
-	'SLIDESHOW_TOPIC_COUNT'					=> 'Số lượng chủ đề',
-	'SLIDESHOW_TOPIC_COUNT_EXPLAIN'			=> 'Số lượng chủ đề cần lấy.',
-	'SLIDESHOW_TOPIC_HIDE_BBCODE'			=> 'Ẩn nội dung BBCode',
-	'SLIDESHOW_TOPIC_HIDE_BBCODE_EXPLAIN'	=> 'Nếu bạn muốn ẩn nội dung của một vài BBCode, nhập mỗi tên BBCode ở đây, phân tách bởi dấu phẩy (,), không được chứa các dấu ngoặc vuông (ví dụ: <samp>url, code</samp>).',
-	'SLIDESHOW_DEFAULT_IMAGE'				=> 'Hình ảnh mặc định',
-	'SLIDESHOW_DEFAULT_IMAGE_EXPLAIN'		=> 'Nếu bài viết đầu tiên của chủ đề không chứa bất kì hình ảnh nào (bằng việc sử dụng BBcode IMG hoặc tệp đính kèm trong dòng đoạn văn), sử dụng hình ảnh mặc định để thay thế.',
+	'SLIDESHOW_MODE'								=> 'Chế độ trình chiếu',
+	'SLIDESHOW_MODE_TOPICS'							=> 'Chủ đề mới nhất',
+	'SLIDESHOW_MODE_TOPICS_EXPLAIN'					=> 'Đặt chủ đề mới nhất như là các trang chiếu.',
+	'SLIDESHOW_TOPIC_MAX_LENGTH'					=> 'Độ dài tối đa',
+	'SLIDESHOW_TOPIC_MAX_LENGTH_EXPLAIN'			=> 'Độ dài tối đa của nội dung bài viết để hiển thị trong phần mô tả. Đặt là 0 nếu bạn muốn ẩn nội dung bài viết.',
+	'SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM'			=> 'Ẩn các bài viết trong diễn đàn được bảo vệ bởi mật khẩu',
+	'SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM_EXPLAIN'	=> 'Không hiển thị các bài viết trong diễn đàn được bảo vệ bởi mật khẩu.',
+	'SLIDESHOW_TOPIC_COUNT'							=> 'Số lượng chủ đề',
+	'SLIDESHOW_TOPIC_COUNT_EXPLAIN'					=> 'Số lượng chủ đề cần lấy.',
+	'SLIDESHOW_TOPIC_HIDE_BBCODE'					=> 'Ẩn nội dung BBCode',
+	'SLIDESHOW_TOPIC_HIDE_BBCODE_EXPLAIN'			=> 'Nếu bạn muốn ẩn nội dung của một vài BBCode, nhập mỗi tên BBCode ở đây, phân tách bởi dấu phẩy (,), không được chứa các dấu ngoặc vuông (ví dụ: <samp>url, code</samp>).',
+	'SLIDESHOW_DEFAULT_IMAGE'						=> 'Hình ảnh mặc định',
+	'SLIDESHOW_DEFAULT_IMAGE_EXPLAIN'				=> 'Nếu bài viết đầu tiên của chủ đề không chứa bất kì hình ảnh nào (bằng việc sử dụng BBcode IMG hoặc tệp đính kèm trong dòng đoạn văn), sử dụng hình ảnh mặc định để thay thế.',
 
-	'ACP_SLIDE_SETTINGS_SAVED'				=> 'Các cài đặt Quản trị khung trình chiếu đã được lưu.'
+	'ACP_SLIDE_SETTINGS_SAVED'						=> 'Các cài đặt Quản trị khung trình chiếu đã được lưu.'
 ));

@@ -74,7 +74,14 @@
 {% else %}
 
 	<h1>{{ lang('ACP_MANAGE_SLIDES_TITLE') }}</h1>
-
+	
+	{% if S_TAMIT_SLIDESHOW_MODE_TOPICS == 1 %}
+		<div class="errorbox">
+			<h3>{{ lang('WARNING') }}</h3>
+			<p>{{ lang('SLIDE_SETTINGS_NOT_AFFECTED') }}</p>
+		</div>
+	{% endif %}
+	
 	<table class="table1 zebra-table fixed-width-table">
 		<thead>
 			<tr>
