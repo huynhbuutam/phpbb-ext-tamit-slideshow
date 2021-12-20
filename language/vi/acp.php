@@ -91,6 +91,9 @@ $lang = array_merge($lang, array(
 	'CAT_TARGET_VIEWFORUM'				=> 'Xem diễn đàn',
 	'CAT_TARGET_VIEWTOPIC'				=> 'Xem chủ đề',
 	
+	'SLIDESHOW_DURATION'				=> 'Thời lượng',
+	'SLIDESHOW_DURATION_EXPLAIN'		=> 'Mỗi trang chiếu sẽ được hiển thị trong bao lâu? (tính bằng mi-li giây)',
+	
 	'SLIDESHOW_MODE'								=> 'Chế độ trình chiếu',
 	'SLIDESHOW_MODE_TOPICS'							=> 'Chủ đề mới nhất',
 	'SLIDESHOW_MODE_TOPICS_EXPLAIN'					=> 'Đặt chủ đề mới nhất như là các trang chiếu.',

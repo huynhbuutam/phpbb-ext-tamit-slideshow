@@ -98,6 +98,7 @@ class admin_controller
 				$this->config->set('tamit_slideshow_page_index', $this->request->variable('slideshow_page_index', 0));
 				$this->config->set('tamit_slideshow_page_viewforum', $this->request->variable('slideshow_page_viewforum', 0));
 				$this->config->set('tamit_slideshow_page_viewtopic', $this->request->variable('slideshow_page_viewtopic', 0));
+				$this->config->set('tamit_slideshow_duration', $this->request->variable('slideshow_duration', 0));
 				$this->config->set('tamit_slideshow_box', $this->request->variable('slideshow_box', 0));
 				$this->config->set('tamit_slideshow_nav_image', $this->request->variable('slideshow_nav_image', 0));
 				$this->config->set('tamit_slideshow_nav_dot', $this->request->variable('slideshow_nav_dot', 0));
@@ -120,6 +121,7 @@ class admin_controller
 			'SLIDESHOW_PAGE_INDEX' 					=> $this->config['tamit_slideshow_page_index'],
 			'SLIDESHOW_PAGE_VIEWFORUM' 				=> $this->config['tamit_slideshow_page_viewforum'],
 			'SLIDESHOW_PAGE_VIEWTOPIC' 				=> $this->config['tamit_slideshow_page_viewtopic'],
+			'SLIDESHOW_DURATION' 					=> $this->config['tamit_slideshow_duration'],
 			'SLIDESHOW_BOX' 						=> $this->config['tamit_slideshow_box'],
 			'SLIDESHOW_NAV_IMAGE' 					=> $this->config['tamit_slideshow_nav_image'],
 			'SLIDESHOW_NAV_DOT' 					=> $this->config['tamit_slideshow_nav_dot'],

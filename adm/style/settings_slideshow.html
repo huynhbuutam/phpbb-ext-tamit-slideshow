@@ -22,6 +22,12 @@
 				<label><input type="checkbox" class="radio" name="slideshow_page_viewtopic" value="1"{% if SLIDESHOW_PAGE_VIEWTOPIC == 1 %} checked{% endif %} /> {{ lang('CAT_TARGET_VIEWTOPIC') }}</label>
 			</dd>
 		</dl>
+		<dl>
+			<dt><label>{{ lang('SLIDESHOW_DURATION') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_DURATION_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="number" id="slideshow_duration" name="slideshow_duration" value="{{ SLIDESHOW_DURATION }}" min="500" max="60000" step="500" />
+			</dd>
+		</dl>
 	</fieldset>
 	<fieldset>
 		<legend>{{ lang('SLIDESHOW_APPEARENCE') }}</legend>

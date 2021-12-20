@@ -238,6 +238,12 @@ class manager
 				if (strlen($post_text) > $this->config['tamit_slideshow_topic_max_length'])
 				{
 					$post_text = substr($post_text, 0, $this->config['tamit_slideshow_topic_max_length']);
+					
+					if (strrpos($post_text, ' '))
+					{
+						$post_text = substr($post_text, 0, strrpos($post_text, ' '));
+					}
+					
 					$post_text = $post_text . '...';
 				}
 			}

@@ -116,6 +116,7 @@ class main_listener implements EventSubscriberInterface
 		$this->template->assign_var('S_SLIDESHOW_PAGE_INDEX', $this->config['tamit_slideshow_page_index']);
 		$this->template->assign_var('S_SLIDESHOW_PAGE_VIEWFORUM', $this->config['tamit_slideshow_page_viewforum']);
 		$this->template->assign_var('S_SLIDESHOW_PAGE_VIEWTOPIC', $this->config['tamit_slideshow_page_viewtopic']);
+		$this->template->assign_var('S_SLIDESHOW_DURATION', $this->config['tamit_slideshow_duration']);
 		$this->template->assign_var('S_SLIDESHOW_BOX', $this->config['tamit_slideshow_box']);
 		$this->template->assign_var('S_SLIDESHOW_NAV_IMAGE', $this->config['tamit_slideshow_nav_image']);
 		$this->template->assign_var('S_SLIDESHOW_NAV_DOT', $this->config['tamit_slideshow_nav_dot']);

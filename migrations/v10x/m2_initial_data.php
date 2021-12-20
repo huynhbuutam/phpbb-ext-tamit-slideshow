@@ -31,6 +31,7 @@ class m2_initial_data extends \phpbb\db\migration\migration
 			array('config.add', array('tamit_slideshow_page_index', 1)),
 			array('config.add', array('tamit_slideshow_page_viewforum', 0)),
 			array('config.add', array('tamit_slideshow_page_viewtopic', 0)),
+			array('config.add', array('tamit_slideshow_duration', 10000)),
 			array('config.add', array('tamit_slideshow_box', 1)),
 			array('config.add', array('tamit_slideshow_nav_image', 1)),
 			array('config.add', array('tamit_slideshow_nav_dot', 1)),

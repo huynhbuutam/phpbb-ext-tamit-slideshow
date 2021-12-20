@@ -3,7 +3,7 @@
 <script type="text/javascript">
 var slides = document.getElementsByClassName("slideshow-slides");
 var slideIndex = Math.floor(Math.random() * slides.length);
-var showLoopTime = 10000;
+var showLoopTime = {{ S_SLIDESHOW_DURATION }};
 showSlides(slideIndex);
 var slideShowTimer = setInterval(loopSlides, showLoopTime);
 

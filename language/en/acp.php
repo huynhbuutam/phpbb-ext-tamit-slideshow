@@ -91,6 +91,9 @@ $lang = array_merge($lang, array(
 	'CAT_TARGET_VIEWFORUM'				=> 'Viewforum',
 	'CAT_TARGET_VIEWTOPIC'				=> 'Viewtopic',
 	
+	'SLIDESHOW_DURATION'				=> 'Duration',
+	'SLIDESHOW_DURATION_EXPLAIN'		=> 'How long will each slide be displayed? (in milliseconds)',
+	
 	'SLIDESHOW_MODE'								=> 'Slideshow mode',
 	'SLIDESHOW_MODE_TOPICS'							=> 'Newest topics',
 	'SLIDESHOW_MODE_TOPICS_EXPLAIN'					=> 'Set newest topics as slides.',
