@@ -65,7 +65,7 @@ class manager
 		$data = $this->db->sql_fetchrow($result);
 		$this->db->sql_freeresult($result);
 		
-		return $data !== false ? $data : array();
+		return $data ?? [];
 	}
 
 	/**
@@ -115,9 +115,9 @@ class manager
 		$sql = 'SELECT forum_id
 			FROM ' . ($is_post ? POSTS_TABLE : TOPICS_TABLE) . '
 			WHERE ' . ($is_post ? 'post_id' : 'topic_id') . ' = ' . (int) $id;
-		$result = $this->db->sql_query($sql);
+		$this->db->sql_query($sql);
 		
-		return (int) $this->db->sql_fetchrow($result);
+		return (int) $this->db->sql_fetchfield('forum_id');
 	}
 	
 	/**
@@ -131,11 +131,10 @@ class manager
 		$sql = 'SELECT forum_password
 			FROM ' . FORUMS_TABLE . '
 			WHERE forum_id = ' . (int) $forum_id;
-		$result = $this->db->sql_query($sql);
-		$password = $this->db->sql_fetchrow($result);
-		$this->db->sql_freeresult($result);
+		$this->db->sql_query($sql);
+		$password = $this->db->sql_fetchfield('forum_password');
 		
-		return (strlen($password["forum_password"]) > 0 ? true : false);
+		return (strlen($password) > 0);
 	}
 	
 	/**
@@ -262,7 +261,7 @@ class manager
 		}
 		$this->db->sql_freeresult($result);
 
-		return $data !== false ? $data : array();
+		return $data ?? [];
 	}
 
 	/**

@@ -62,8 +62,7 @@ class helper
 			'SLIDE_DESCRIPTION'		=> $data['slide_description'],
 			'SLIDE_IMAGE'			=> $data['slide_image'],
 			'SLIDE_LINK'			=> $data['slide_link'],
-			'SLIDE_ENABLED'			=> $data['slide_enabled'],
-			//'SLIDE_POSITION'			=> $data['slide_position']
+			'SLIDE_ENABLED'			=> $data['slide_enabled']
 		));
 	}
 
