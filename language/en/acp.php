@@ -79,6 +79,10 @@ $lang = array_merge($lang, array(
 	'SLIDESHOW_BOX_EXPLAIN'				=> 'Wrapped the slideshow with style\'s container.',
 	'SLIDESHOW_NAVIGATOR'				=> 'Navigator',
 	'SLIDESHOW_NAVIGATOR_EXPLAIN'		=> 'Choose navigator to display.',
+	'SLIDESHOW_SLIDE_HEIGHT'			=> 'Slide image height',
+	'SLIDESHOW_SLIDE_HEIGHT_EXPLAIN'	=> 'Specify the height of the slide image.',
+	'SLIDESHOW_IMAGE_NAV_SIZE'			=> 'Image navigator size',
+	'SLIDESHOW_IMAGE_NAV_SIZE_EXPLAIN'	=> 'Specify the size of the image navigator.',
 	
 	'CAT_NAV_IMAGE'						=> 'Image navigator',
 	'CAT_NAV_DOT'						=> 'Dot navigator',

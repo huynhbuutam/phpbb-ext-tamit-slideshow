@@ -45,6 +45,19 @@
 				<label><input type="checkbox" class="radio" name="slideshow_nav_dot" value="1"{% if SLIDESHOW_NAV_DOT == 1 %} checked{% endif %} /> {{ lang('CAT_NAV_DOT') }}</label>
 			</dd>
 		</dl>
+		<dl>
+			<dt><label>{{ lang('SLIDESHOW_SLIDE_HEIGHT') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_SLIDE_HEIGHT_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="number" id="slideshow_slide_height" name="slideshow_slide_height" value="{{ SLIDESHOW_SLIDE_HEIGHT }}" min="200" max="600" /> px
+			</dd>
+		</dl>
+		<dl>
+			<dt><label>{{ lang('SLIDESHOW_IMAGE_NAV_SIZE') ~ lang('COLON') }}</label><br /><span>{{ lang('SLIDESHOW_IMAGE_NAV_SIZE_EXPLAIN') }}</span></dt>
+			<dd>
+				<input type="number" id="slideshow_image_nav_width" name="slideshow_image_nav_width" value="{{ SLIDESHOW_IMAGE_NAV_WIDTH }}" min="30" max="200" /> x 
+				<input type="number" id="slideshow_image_nav_height" name="slideshow_image_nav_height" value="{{ SLIDESHOW_IMAGE_NAV_HEIGHT }}" min="30" max="200" /> px
+			</dd>
+		</dl>
 	</fieldset>
 	<fieldset>
 		<legend>{{ lang('SLIDESHOW_MODE') }}</legend>

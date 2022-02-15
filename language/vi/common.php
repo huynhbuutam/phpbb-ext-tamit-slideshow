@@ -19,6 +19,5 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'SLIDESHOW_TITLE'				=> 'Khung trình chiếu',
-	'SLIDESHOW_EMPTY'				=> 'Không có trang chiếu nào để hiển thị.'
+	'SLIDESHOW_TITLE'				=> 'Khung trình chiếu'
 ));

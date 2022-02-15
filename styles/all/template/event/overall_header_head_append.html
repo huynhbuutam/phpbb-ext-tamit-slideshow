@@ -1,1 +1,23 @@
 {% INCLUDECSS '@tamit_slideshow/tamitslideshow.css' %}
+<style type="text/css">
+	.slideshow-list-inner {
+		{% if S_SLIDESHOW_NAV_IMAGE == 0 %}
+		margin-right: 0 !important;
+		{% else %}
+		margin-right: {{ S_SLIDESHOW_IMAGE_NAV_WIDTH + 5 }}px !important;
+		{% endif %}
+	}
+	.slideshow-no-wrap {
+		margin-right: {% if S_SLIDESHOW_NAV_IMAGE == 0 %}0{% else %}{{ S_SLIDESHOW_IMAGE_NAV_WIDTH + 10 }}px{% endif %};
+	}
+	.slideshow-container {
+		height: {{ S_SLIDESHOW_SLIDE_HEIGHT }}px;
+	}
+	img.slideshow-image-navigator {
+		width: {{ S_SLIDESHOW_IMAGE_NAV_WIDTH }}px;
+		height: {{ S_SLIDESHOW_IMAGE_NAV_HEIGHT }}px;
+	}
+	.slideshow-image-navigator-container {
+		width: {{ S_SLIDESHOW_IMAGE_NAV_WIDTH + 25 }}px;
+	}
+</style>

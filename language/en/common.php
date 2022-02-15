@@ -19,6 +19,5 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, array(
-	'SLIDESHOW_TITLE'		=> 'Slideshow',
-	'SLIDESHOW_EMPTY'		=> 'No slides to display.'
+	'SLIDESHOW_TITLE'		=> 'Slideshow'
 ));

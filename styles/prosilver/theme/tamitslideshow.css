@@ -1,17 +1,23 @@
 /* ============ Fix CSS ============ */
 .slideshow-list-inner {
-	margin-right: 105px !important;
+	padding-left: 5px !important;
+}
+.slideshow-list-inner2 {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 4px;
 }
 .slideshow-no-wrap {
 	position: relative;
 	overflow: hidden;
 	border-radius: 7px;
+	font-size: 1.1em;
 }
 
 /* ============ Slideshow container ============ */
 .slideshow-container {
 	position: relative;
-	height: 200px;
 	overflow: hidden;
 }
 
@@ -22,6 +28,8 @@
 	transition: all 1s ease;
 	overflow: hidden;
 	background-size: 100% 100%;
+	background-position: top;
+	background-repeat: no-repeat;
 	position: relative;
 }
 
@@ -39,17 +47,14 @@
 .slideshow-image-navigator-container {
 	position: absolute;
 	top: 0;
-	right: -20px;
+	right: -22px;
 	bottom: 0;
-	width: 125px;
 	margin-right: 5px;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	scroll-behavior: smooth;
 }
 .slideshow-image-navigator-container img {
-	width: 100px;
-	height: 50px;
 	margin: 2px;
 	border: 1px solid #000000;
 	cursor: pointer;

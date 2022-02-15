@@ -120,5 +120,8 @@ class main_listener implements EventSubscriberInterface
 		$this->template->assign_var('S_SLIDESHOW_BOX', $this->config['tamit_slideshow_box']);
 		$this->template->assign_var('S_SLIDESHOW_NAV_IMAGE', $this->config['tamit_slideshow_nav_image']);
 		$this->template->assign_var('S_SLIDESHOW_NAV_DOT', $this->config['tamit_slideshow_nav_dot']);
+		$this->template->assign_var('S_SLIDESHOW_SLIDE_HEIGHT', $this->config['tamit_slideshow_slide_height']);
+		$this->template->assign_var('S_SLIDESHOW_IMAGE_NAV_WIDTH', $this->config['tamit_slideshow_image_nav_width']);
+		$this->template->assign_var('S_SLIDESHOW_IMAGE_NAV_HEIGHT', $this->config['tamit_slideshow_image_nav_height']);
 	}
 }

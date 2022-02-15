@@ -79,6 +79,10 @@ $lang = array_merge($lang, array(
 	'SLIDESHOW_BOX_EXPLAIN'				=> 'Bao bọc khung trình chiếu bằng khung chứa của giao diện.',
 	'SLIDESHOW_NAVIGATOR'				=> 'Trình điều hướng',
 	'SLIDESHOW_NAVIGATOR_EXPLAIN'		=> 'Chọn trình điều hướng để hiển thị.',
+	'SLIDESHOW_SLIDE_HEIGHT'			=> 'Chiều cao hình ảnh trang chiếu',
+	'SLIDESHOW_SLIDE_HEIGHT_EXPLAIN'	=> 'Chỉ định chiều cao của hình ảnh trang chiếu.',
+	'SLIDESHOW_IMAGE_NAV_SIZE'			=> 'Kích thước điều hướng bằng hình ảnh',
+	'SLIDESHOW_IMAGE_NAV_SIZE_EXPLAIN'	=> 'Chỉ định kích thước của điều hướng bằng hình ảnh.',
 	
 	'CAT_NAV_IMAGE'						=> 'Điều hướng bằng hình ảnh',
 	'CAT_NAV_DOT'						=> 'Điều hướng bằng nút chấm',

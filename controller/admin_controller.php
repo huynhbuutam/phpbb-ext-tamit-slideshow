@@ -102,6 +102,9 @@ class admin_controller
 				$this->config->set('tamit_slideshow_box', $this->request->variable('slideshow_box', 0));
 				$this->config->set('tamit_slideshow_nav_image', $this->request->variable('slideshow_nav_image', 0));
 				$this->config->set('tamit_slideshow_nav_dot', $this->request->variable('slideshow_nav_dot', 0));
+				$this->config->set('tamit_slideshow_slide_height', $this->request->variable('slideshow_slide_height', 0));
+				$this->config->set('tamit_slideshow_image_nav_width', $this->request->variable('slideshow_image_nav_width', 0));
+				$this->config->set('tamit_slideshow_image_nav_height', $this->request->variable('slideshow_image_nav_height', 0));
 				$this->config->set('tamit_slideshow_mode', $this->request->variable('slideshow_mode', 0));
 				$this->config->set('tamit_slideshow_topic_max_length', $this->request->variable('slideshow_topic_max_length', 0));
 				$this->config->set('tamit_slideshow_topic_hide_protected_forum', $this->request->variable('slideshow_topic_hide_protected_forum', 0));
@@ -125,6 +128,9 @@ class admin_controller
 			'SLIDESHOW_BOX' 						=> $this->config['tamit_slideshow_box'],
 			'SLIDESHOW_NAV_IMAGE' 					=> $this->config['tamit_slideshow_nav_image'],
 			'SLIDESHOW_NAV_DOT' 					=> $this->config['tamit_slideshow_nav_dot'],
+			'SLIDESHOW_SLIDE_HEIGHT' 				=> $this->config['tamit_slideshow_slide_height'],
+			'SLIDESHOW_IMAGE_NAV_WIDTH' 			=> $this->config['tamit_slideshow_image_nav_width'],
+			'SLIDESHOW_IMAGE_NAV_HEIGHT' 			=> $this->config['tamit_slideshow_image_nav_height'],
 			'SLIDESHOW_MODE' 						=> $this->config['tamit_slideshow_mode'],
 			'SLIDESHOW_TOPIC_MAX_LENGTH' 			=> $this->config['tamit_slideshow_topic_max_length'],
 			'SLIDESHOW_TOPIC_HIDE_PROTECTED_FORUM' 	=> $this->config['tamit_slideshow_topic_hide_protected_forum'],

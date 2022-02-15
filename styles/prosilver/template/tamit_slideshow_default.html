@@ -1,82 +1,77 @@
+{% if SLIDESHOW_SLIDES|length > 0 %}
 {% if S_SLIDESHOW_BOX == 1 %}
 <div class="forabg">
-<div class="inner">
-	<ul class="topiclist">
-		<li class="header">
-			<dl class="row-item">
-				<dt>
-					<div class="list-inner slideshow-list-inner">{{ lang('SLIDESHOW_TITLE') }}</div>
-				</dt>
-			</dl>
-		</li>
-	</ul>
-	
-	<ul class="topiclist forums">
-		<li class="row">
-			<dl class="row-item">
-				<dt>
-					<div class="list-inner slideshow-list-inner" style="padding-left: 5px;{% if S_SLIDESHOW_NAV_IMAGE == 0 %} margin-right: 0 !important;{% endif %}">
+	<div class="inner">
+		<ul class="topiclist">
+			<li class="header">
+				<dl class="row-item">
+					<dt>
+						<div class="list-inner">{{ lang('SLIDESHOW_TITLE') }}</div>
+					</dt>
+				</dl>
+			</li>
+		</ul>
+		
+		<ul class="topiclist forums">
+			<li class="row">
+				<dl class="row-item">
+					<dt>
+						<div class="list-inner slideshow-list-inner">
 {% else %}
-				<div style="width: 100%; position: relative; overflow: hidden;">
-					<div class="slideshow-no-wrap" style="margin-right: {% if S_SLIDESHOW_NAV_IMAGE == 0 %} 0{% else %} 110px{% endif %};">
+<div class="slideshow-list-inner2">
+	<div class="slideshow-no-wrap">
 {% endif %}
-						{% if SLIDESHOW_SLIDES|length > 0 %}
-						<!-- Slideshow container -->
-						<div class="slideshow-container">
-						<!-- Slides -->
-							{% for slide in SLIDESHOW_SLIDES %}
-							<div class="slideshow-slides" style="background-image: url('{{ slide.slide_image }}');">
-							{% if slide.slide_title|length > 0 || slide.slide_description|length > 0 %}
-							<div class="slideshow-slides-text">
-							{% if slide.slide_title|length > 0 %}
-							<a class="forumtitle" href="{% if slide.slide_link|length > 0 %}{{ slide.slide_link }}{% else %}#{% endif %}" title="{{ slide.slide_title }}">{{ slide.slide_title }}</a><br />
-							{% endif %}
-							{{ slide.slide_description }}
-							</div>
-							{% endif %}
-							</div>
-							{% endfor %}
-							
-							<!-- Next & previous buttons -->
-							<a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
-							<a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
-						</div>
-						{% if S_SLIDESHOW_NAV_DOT == 1 %}
-						<!-- Dot navigator container -->
-						<div class="slideshow-dot-navigator-container">
-							{% for i in 1 .. SLIDESHOW_SLIDES|length %}
-							<span class="slideshow-dot-navigator" onclick="currentSlide({{ i }})">{{ i }}</span>
-							{% endfor %}
-						</div>
-						{% endif %}
-						
-						{% else %}
-						{{ lang('SLIDESHOW_EMPTY') }}
-						{% endif %}
-					</div>
-{% if S_SLIDESHOW_BOX == 1 %}
-				</dt>
-{% endif %}
-				{% if S_SLIDESHOW_NAV_IMAGE == 1 %}
-{% if S_SLIDESHOW_BOX == 1 %}
-				<dd class="lastpost" style="border: 0;">
-{% endif %}
-					{% if SLIDESHOW_SLIDES|length > 0 %}
-					<!-- Image navigator container -->
-					<div class="slideshow-image-navigator-container">
-						{% for slide in SLIDESHOW_SLIDES %}
-						<img class="slideshow-image-navigator" src="{{ slide.slide_image }}" title="{{ slide.slide_title }}" onclick="currentSlide({{ loop.index }})"/>
-						{% endfor %}
-					</div>
+		<!-- Slideshow container -->
+		<div class="slideshow-container">
+			<!-- Slides -->
+			{% for slide in SLIDESHOW_SLIDES %}
+			<div class="slideshow-slides" style="background-image: url('{{ slide.slide_image }}');">
+				{% if slide.slide_title|length > 0 || slide.slide_description|length > 0 %}
+				<div class="slideshow-slides-text">
+					{% if slide.slide_title|length > 0 %}
+					<a class="forumtitle" href="{% if slide.slide_link|length > 0 %}{{ slide.slide_link }}{% else %}#{% endif %}" title="{{ slide.slide_title }}">{{ slide.slide_title }}</a><br />
 					{% endif %}
-{% if S_SLIDESHOW_BOX == 1 %}
-				</dd>
-{% endif %}
+					{{ slide.slide_description }}
+				</div>
 				{% endif %}
-{% if S_SLIDESHOW_BOX == 1 %}
-			</dl>
-		</li>
-	</ul>
+			</div>
+			{% endfor %}
+			
+			<!-- Next & previous buttons -->
+			<a class="slideshow-prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="slideshow-next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		{% if S_SLIDESHOW_NAV_DOT == 1 %}
+		<!-- Dot navigator container -->
+		<div class="slideshow-dot-navigator-container">
+			{% for i in 1 .. SLIDESHOW_SLIDES|length %}
+			<span class="slideshow-dot-navigator" onclick="currentSlide({{ i }})">{{ i }}</span>
+			{% endfor %}
+		</div>
+		{% endif %}
+	</div>
+					{% if S_SLIDESHOW_BOX == 1 %}
+					</dt>
+					{% endif %}
+	{% if S_SLIDESHOW_NAV_IMAGE == 1 %}
+					{% if S_SLIDESHOW_BOX == 1 %}
+					<dd style="border: 0;">
+					{% endif %}
+	<!-- Image navigator container -->
+	<div class="slideshow-image-navigator-container">
+		{% for slide in SLIDESHOW_SLIDES %}
+		<img class="slideshow-image-navigator" src="{{ slide.slide_image }}" title="{{ slide.slide_title }}" onclick="currentSlide({{ loop.index }})"/>
+		{% endfor %}
+	</div>
+					{% if S_SLIDESHOW_BOX == 1 %}
+					</dd>
+					{% endif %}
+	{% endif %}
+	{% if S_SLIDESHOW_BOX == 1 %}
+				</dl>
+			</li>
+		</ul>
+	</div>
+	{% endif %}
 </div>
 {% endif %}
-</div>
