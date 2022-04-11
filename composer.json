@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "An extension for phpBB that allows administrators to manage slideshow on their forums.",
     "homepage": "https://www.tamit.net",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "phpbb",
         "extension",
