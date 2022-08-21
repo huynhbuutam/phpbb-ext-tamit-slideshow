@@ -73,8 +73,9 @@ img.slideshow-active, .slideshow-image-navigator-container img:hover {
 }
 .slideshow-dot-navigator {
 	cursor: pointer;
-	height: 15px;
-	width: 15px;
+	height: auto;
+	width: auto;
+	padding: 3px;
 	margin: 0 2px;
 	background-color: #bbb;
 	border-radius: 50%;
